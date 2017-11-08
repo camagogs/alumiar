@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: textos;
+    src: url(font/palanquin/palanquin-semibold.ttf);
+    font-style: normal;
+}
+@font-face {
+    font-family: titulos;
+    src: url(font/kitten/KittenBoldTrial.ttf);
+    font-style: normal;
+}
+
+.corpo{
+    width: 100vw;
+    height: auto;
+    background-color: #F7F8F9;
+}
+.fonte-titulo{
+    font-family: titulos;
+    font-size: 24pt;
+    text-align: center;
+    padding-top: 4vh;
+    color: #37b7a4;
+}
+.fonte-textos{
+    font-family: textos;
+    line-height: 20pt;
+    font-family: textos;
+    font-size: 17pt;
+    color: #698499;
+}
+form{
+    padding: 2vh;
+}
+form > article{
+    width: 100%;
+    height: 10vh;
+}
+.input-formulario{
+    width: 90vw;
+    font-size: 20pt;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #698499;
+    background-color: #F7F8F9;
+    color: #37b7a4;
+    outline: none;
+}
+form > article > h4{
+    top: 0;
+}
+form > article > input[type="radio"] {
+    margin: 1vh 0vw 0vh 4vw;
+}
+
+.img-animal{
+    padding: 2vh 0vw 3vh 0vw;
+}
+.botao{
+    padding: 2vh 0vw 0vh 0vw;
+}
+.input-botao-cadastrar{
+    width: 90vw;
+    height: 7vh;
+    text-align: center;
+    background-color: #698499;
+    color: #F7F8F9;
+    font-size: 18pt;
+}
+.input-botao-cancelar{
+    background-color: #F7F8F9;
+    color: #698499;
+    width: 90vw;
+    text-align: center;
+    height: 7vh;
+    border-style: none;
+    font-size: 16pt;
+
+}
