@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-enum TipoPorte { PEQUENO, MEDIO, GRANDE };
+enum TipoAnimal { CACHORRO, GATO };
 enum Idade { FILHOTE, ADULTO, IDOSO };
+enum Pelagem { CURTA, MEDIA, LONGA };
 
 @Entity(name="animal")
 public class Animal {
@@ -20,32 +21,40 @@ public class Animal {
 	
 	private String nome;
 	
-	private String tipoAnimal;
+	private String pathFoto;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name= "porte_animal")
-	private TipoPorte porte;
+	@Column(name= "tipo_animal")
+	private TipoAnimal animal;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="faixa_idade")
+	@Column(name="faixa_etaria")
 	private Idade idade;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="tipo_pelagem")
+	private Pelagem pelagem;
 	
 	private char sexo;
 	
 	private String descricao;
 	
+	private String cuidados;
+	
 	public Animal() {
 		
 	}
-
-	public Animal(Long id, String nome, String tipoAnimal, TipoPorte porte, Idade idade, char sexo, String descricao) {
+	
+	public Animal(Long id, String nome, TipoAnimal animal, Idade idade, Pelagem pelagem, char sexo,
+			String descricao, String cuidados) {
 		this.id = id;
 		this.nome = nome;
-		this.tipoAnimal = tipoAnimal;
-		this.porte = porte;
+		this.animal = animal;
 		this.idade = idade;
+		this.pelagem = pelagem;
 		this.sexo = sexo;
 		this.descricao = descricao;
+		this.cuidados = cuidados;
 	}
 
 	public Long getId() {
@@ -64,14 +73,6 @@ public class Animal {
 		this.nome = nome;
 	}
 
-	public String getTipoAnimal() {
-		return tipoAnimal;
-	}
-
-	public void setTipoAnimal(String tipoAnimal) {
-		this.tipoAnimal = tipoAnimal;
-	}
-
 	public char getSexo() {
 		return sexo;
 	}
@@ -88,12 +89,12 @@ public class Animal {
 		this.descricao = descricao;
 	}
 
-	public TipoPorte getPorte() {
-		return porte;
+	public TipoAnimal getAnimal() {
+		return animal;
 	}
 
-	public void setPorte(TipoPorte porte) {
-		this.porte = porte;
+	public void setAnimal(TipoAnimal animal) {
+		this.animal = animal;
 	}
 
 	public Idade getIdade() {
@@ -103,4 +104,28 @@ public class Animal {
 	public void setIdade(Idade idade) {
 		this.idade = idade;
 	}
+
+	public Pelagem getPelagem() {
+		return pelagem;
+	}
+
+	public void setPelagem(Pelagem pelagem) {
+		this.pelagem = pelagem;
+	}
+
+	public String getCuidados() {
+		return cuidados;
+	}
+
+	public void setCuidados(String cuidados) {
+		this.cuidados = cuidados;
+	}
+
+	public String getPathFoto() {
+		return pathFoto;
+	}
+
+	public void setPathFoto(String pathFoto) {
+		this.pathFoto = pathFoto;
+	}	
 }

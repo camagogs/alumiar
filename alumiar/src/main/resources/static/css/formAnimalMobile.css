@@ -4,12 +4,12 @@
 }
 @font-face {
     font-family: textos;
-    src: url(font/palanquin/palanquin-semibold.ttf);
+    src: url(../fonts/palanquin/palanquin-semibold.ttf);
     font-style: normal;
 }
 @font-face {
     font-family: titulos;
-    src: url(font/kitten/KittenBoldTrial.ttf);
+    src: url(../fonts/kitten/KittenBoldTrial.ttf);
     font-style: normal;
 }
 
