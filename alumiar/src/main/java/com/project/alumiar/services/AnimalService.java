@@ -12,6 +12,13 @@ public class AnimalService {
 	@Autowired
 	private AnimalRepository repository;
 	
+	public Iterable<Animal> obterTodos(){
+		
+		Iterable<Animal> animais = repository.findAll();
+		
+		return animais;
+	}
+	
 	public void salvar(Animal animal) {
 		repository.save(animal);
 	}

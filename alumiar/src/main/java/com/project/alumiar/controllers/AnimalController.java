@@ -12,7 +12,6 @@ import com.project.alumiar.models.Animal;
 import com.project.alumiar.models.Animal.Idade;
 import com.project.alumiar.models.Animal.Pelagem;
 import com.project.alumiar.models.Animal.TipoAnimal;
-import com.project.alumiar.repository.AnimalRepository;
 import com.project.alumiar.services.AnimalService;
 
 @Controller
@@ -24,7 +23,16 @@ public class AnimalController {
 	
 	@GetMapping("/form")
 	public String form() {
-		return "forms/formularioAnimal";
+		return "forms/animal/formularioAnimal";
+	}
+	
+	@RequestMapping("/listaranimais")
+	public String listar(Model model) {
+		Iterable<Animal> animais = service.obterTodos();
+		
+		model.addAttribute("animais", animais);
+		
+		return "forms/animal/listAnimal";
 	}
 	
 	@RequestMapping(value = "/form/admin/cadastraAnimal", method = RequestMethod.POST)
@@ -82,7 +90,7 @@ public class AnimalController {
 			
 			service.salvar(animal);
 			
-			return "redirect:/form"; 
+			return "redirect:/listaranimais"; 
 			
 		} catch (Exception e) {
 			return "Ops, deu um erro: " + e.getMessage();
