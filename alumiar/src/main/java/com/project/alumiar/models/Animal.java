@@ -8,18 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-enum TipoAnimal { CACHORRO, GATO };
-enum Idade { FILHOTE, ADULTO, IDOSO };
-enum Pelagem { CURTA, MEDIA, LONGA };
 
 @Entity(name="animal")
 public class Animal {
+
+	public static enum TipoAnimal { CACHORRO, GATO };
+	public static enum Idade { FILHOTE, ADULTO, IDOSO };
+	public static enum Pelagem { CURTA, MEDIA, LONGA };
 	
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY )
 	private Long id;
 	
 	private String nome;
+	
+	private String raca;
 	
 	private String pathFoto;
 	
@@ -35,7 +38,7 @@ public class Animal {
 	@Column(name="tipo_pelagem")
 	private Pelagem pelagem;
 	
-	private char sexo;
+	private String sexo;
 	
 	private String descricao;
 	
@@ -45,10 +48,11 @@ public class Animal {
 		
 	}
 	
-	public Animal(Long id, String nome, TipoAnimal animal, Idade idade, Pelagem pelagem, char sexo,
-			String descricao, String cuidados) {
-		this.id = id;
+	public Animal(String nome, String raca, String pathFoto, TipoAnimal animal, Idade idade, Pelagem pelagem,
+			String sexo, String descricao, String cuidados) {
 		this.nome = nome;
+		this.raca = raca;
+		this.pathFoto = pathFoto;
 		this.animal = animal;
 		this.idade = idade;
 		this.pelagem = pelagem;
@@ -56,6 +60,7 @@ public class Animal {
 		this.descricao = descricao;
 		this.cuidados = cuidados;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -73,11 +78,11 @@ public class Animal {
 		this.nome = nome;
 	}
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -127,5 +132,14 @@ public class Animal {
 
 	public void setPathFoto(String pathFoto) {
 		this.pathFoto = pathFoto;
-	}	
+	}
+
+	public String getRaca() {
+		return raca;
+	}
+
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}
+	
 }

@@ -12,51 +12,51 @@
 <body>
     <section class="corpo">
         <h1 class="fonte-titulo">Formulário de Catalogação</h1>
-        <form class="fonte-textos" action="">
+        <form class="fonte-textos" action="/form/admin/cadastraAnimal" method="POST">
             <article>
                 <h4>Nome: </h4>
-                <input class="input-formulario" type="text"></input>
+                <input class="input-formulario" type="text" name="nomeAnimal"/>
             </article>
 
             <article  >
                 <h4 >Raça:</h4>
-                <input class="input-formulario" type="text"></input>
+                <input class="input-formulario" type="text" name="raca"/>
             </article>
 
             <article>
                 <h4>Tipo:</h4>
-                <input type="radio" checked="checked" ></input> Cachorro
-                <input type="radio"></input> Gato
+                <input type="radio" checked="checked" name="tipoAnimal" value="c"/>Cachorro
+                <input type="radio" name="tipoAnimal" value="g"/>Gato
             </article>
 
             <article>
                 <h4>Sexo:</h4>
-                <input type="radio" checked="checked"></input> Fêmea
-                <input type="radio"></input> Macho    
+                <input type="radio" checked="checked" name="sexo" value="femea"/>Fêmea
+                <input type="radio" name="sexo" value="macho"/>Macho
             </article>
 
             <article>
                 <h4>Pelagem:</h4>
-                <input type="radio" checked="checked"></input> Curta
-                <input type="radio"></input> Média
-                <input type="radio"></input> Longa       
+                <input type="radio" checked="checked" name="pelagem" value="curta"/>Curta
+                <input type="radio" name="pelagem" value="media"/>Média
+                <input type="radio" name="pelagem" value="longa"/>Longa   
             </article>  
 
             <article>
                 <h4>Idade:</h4>
-                <input type="radio" checked="" /> Filhote
-                <input type="radio"></input> Adulto
-                <input type="radio"></input> Idoso     
+                <input type="radio" checked="checked" name="idade" value="filhote"/>Filhote
+                <input type="radio" name="idade" value="adulto"/>Adulto
+                <input type="radio" name="idade" value="idoso"/>Idoso
             </article> 
 
             <article>
                 <h4>Descrição:</h4>
-                <input class="input-formulario" type="text"></input> 
+                <input class="input-formulario" type="text" name="desc"></input> 
             </article>
 
             <article>
                 <h4>Cuidados especiais:</h4>
-                <input class="input-formulario" type="text"></input>
+                <input class="input-formulario" type="text" name="cuidados"></input>
             </article>
 
             <article>
