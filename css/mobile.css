@@ -17,10 +17,7 @@
     src: url(font/palanquin/palanquindark-regular.ttf);
     font-style:normal;
 }
-a {
-    text-decoration: none;
 
-}
 /*estrutura*/
 .secao{
     display: flex;

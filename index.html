@@ -4,48 +4,57 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="./css/base.css" media="screen">    
-        <link rel="stylesheet" href="./css/ensaios.css" media="screen">
+        <link rel="stylesheet" href="./css/base.css" media="screen">
         <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 480px)">
         <script src = "jquery-3.1.1.min.js"></script>
-        <script src="./js/ensaio.js"></script>
         <title>Alumiar/menu</title>
     </head>
     <body>
-            <section class="barra-fixa secao bg-branco">
-                    <img src="./img/barra.png" alt="">
-            </section>
-            <!-- Inicio -->
-            <section class="secao secao-tamanho bg-azul-escuro margin-barra">
-                <article >
-                    <img class="logo" src="./img/logogif.gif" alt="">
-                    <h1 class="secao-titulo titulo-inicio color-amarelo">Alumiar</h1>
-    
-                </article>
-            </section>  
         <section class="barra-fixa secao bg-branco">
             <img src="img/fechar-menu.png" alt="">
         </section>
 
-        <a href="./html/o_projeto.html"><section class="secao secao-estrutura-titulo bg-amarelo margin-barra" id="secao-projeto-titulo">
+        <section class="secao secao-estrutura-titulo bg-amarelo margin-barra" id="secao-projeto-titulo">
             <h1 class="secao-titulo color-branco">O projeto</h1>
-        </section></a>
-        <a href="./html/ensaios.html"><section class="secao secao-estrutura-titulo bg-turquesa" id="secao-ensaio-titulo">
-            <h1 class="secao-titulo color-branco" >Ensaios</h1>
-        </section></a>
-        <a href="./html/adote.html"><section class="secao secao-estrutura-titulo bg-laranja">
+        </section>
+        <section class="secao secao-estrutura-titulo bg-turquesa" id="secao-ensaio-titulo">
+            <h1 class="secao-titulo color-branco">Ensaios</h1>
+        </section>
+        <section class="secao secao-estrutura-titulo bg-laranja">
             <h1 class="secao-titulo color-branco">Adoção</h1>
-        </section></a>
-        <a href="./html/apoio.html"><section class="secao secao-estrutura-titulo bg-vermelho">
+        </section>
+        <section class="secao secao-estrutura-titulo bg-vermelho">
             <h1 class="secao-titulo color-branco">Apoio</h1>
-        </section></a>
-        <a href="./html/sobre-nos.html"><section class="secao secao-estrutura-titulo bg-azul-escuro">
+        </section>
+        <section class="secao secao-estrutura-titulo bg-azul-escuro">
             <h1 class="secao-titulo color-branco">Sobre nós</h1>
-        </section></a>
+        </section>
         <section class="sociais-menu">
             <div class="sociais-menu-img bg-face-menu bg-img-estrutura"></div>
             <div class="sociais-menu-img bg-insta-menu bg-img-estrutura"></div>
         </section>
 
+        
+<!--         
+        <script type="text/javascript">
+            $(function(){
+                $(".secao-corpo").hide();
+            })
+
+            $("#secao-projeto-titulo").click(function(){
+                $(".secao-corpo").hide();
+                $("#secao-projeto-corpo").slideToggle();
+            })
+
+            $("#secao-ensaio-titulo").click(function(){
+                $(".secao-corpo").hide();   
+                $("#secao-ensaio-corpo").slideToggle();
+                $('html, body').animate({scrollTop:120}, 'slow');
+            })
+        
+        
+        
+        
+        </script> -->
     </body>
 </html>
