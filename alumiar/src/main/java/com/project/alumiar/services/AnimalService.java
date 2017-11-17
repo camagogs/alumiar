@@ -22,5 +22,13 @@ public class AnimalService {
 	public void salvar(Animal animal) {
 		repository.save(animal);
 	}
-
+	
+	
+	public void delete(Long id) {
+		repository.delete(id);
+	}
+	
+	public Animal editar(Long id) {
+		return repository.findOne(id);
+	}
 }

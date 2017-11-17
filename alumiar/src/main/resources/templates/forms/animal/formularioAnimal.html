@@ -12,7 +12,7 @@
 <body>
     <section class="corpo">
         <h1 class="fonte-titulo">Formulário de Catalogação</h1>
-        <form class="fonte-textos" action="/form/admin/cadastraAnimal" method="POST">
+        <form class="fonte-textos" action="/form/admin/cadastraAnimal" method="POST" enctype="multipart/form-data">
             <article>
                 <h4>Nome: </h4>
                 <input class="input-formulario" type="text" name="nomeAnimal"/>
@@ -61,7 +61,7 @@
 
             <article>
                 <h4>Selecione a foto do bixinho: </h4>
-                <input class= "img-animal" type="file" name="myImage" accept="image/*"></input>
+                <input class= "img-animal" type="file" name="myImage"></input>
             </article>
 
             <article class="botao">
