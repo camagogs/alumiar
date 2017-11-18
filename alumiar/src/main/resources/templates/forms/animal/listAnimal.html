@@ -19,6 +19,11 @@
 		<div>
 			<a class="btn btn-info pull-right" th:href="@{/admin/animais/form}">Voltar</a>
 		</div>
+		<div th:each="file : ${files}">
+			<ul>
+				<li><img width="100" th:src="${file}"/></li>
+			</ul>
+		</div>
 		<div id="listaAnimais">
 			<table class="table table-hover">
 				<thead>
@@ -37,11 +42,10 @@
 						<th>APAGAR</th>
 					</tr>
 				</thead>
+
 				<tr th:each="animal : ${animais}">
 					<td><span th:text="${animal.id}"></span></td>
-					<td th:each="file : ${files}">
-						<img width="100" th:src="${file}"/>
-					</td>
+					<td><span th:text="${animal.pathFoto}"></span></td>
 					<td><span th:text="${animal.animal}"></span></td>
 					<td><span th:text="${animal.nome}"></span></td>
 					<td><span th:text="${animal.raca}"></span></td>

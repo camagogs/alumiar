@@ -1,7 +1,9 @@
 package com.project.alumiar.controllers;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -39,7 +41,7 @@ public class AnimalController {
     public AnimalController(StorageService storageService) {
         this.storageService = storageService;
     }
-        
+    
 	@GetMapping("/admin/animais/form")
 	public String form() {
 		return "forms/animal/formularioAnimal";
@@ -49,9 +51,11 @@ public class AnimalController {
 	public String listar(Model model) throws IOException {
 		Iterable<Animal> animais = service.obterTodos();
 		
+		Stream<Path> images = storageService.loadAll();
+		
 		model.addAttribute("animais", animais);
 		
-        model.addAttribute("files", storageService.loadAll().map(
+        model.addAttribute("files", images.map(
                 path -> MvcUriComponentsBuilder.fromMethodName(AnimalController.class,
                         "serveFile", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
