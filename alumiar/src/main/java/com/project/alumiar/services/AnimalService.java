@@ -19,8 +19,8 @@ public class AnimalService {
 		return animais;
 	}
 	
-	public void salvar(Animal animal) {
-		repository.save(animal);
+	public Animal salvar(Animal animal) {
+		return repository.save(animal);
 	}
 	
 	

@@ -2,8 +2,6 @@ package com.project.alumiar.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,10 +10,6 @@ import javax.persistence.Id;
 @Entity(name="animal")
 public class Animal {
 
-	public static enum TipoAnimal { CACHORRO, GATO };
-	public static enum Idade { FILHOTE, ADULTO, IDOSO };
-	public static enum Pelagem { CURTA, MEDIA, LONGA };
-	
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY )
 	private Long id;
@@ -26,17 +20,16 @@ public class Animal {
 	
 	private String pathFoto;
 	
-	@Enumerated(EnumType.STRING)
+	public Boolean isAdotado;
+	
 	@Column(name= "tipo_animal")
-	private TipoAnimal animal;
+	private String animal;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="faixa_etaria")
-	private Idade idade;
+	private String idade;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="tipo_pelagem")
-	private Pelagem pelagem;
+	private String pelagem;
 	
 	private String sexo;
 	
@@ -48,8 +41,8 @@ public class Animal {
 		
 	}
 	
-	public Animal(String nome, String raca, String pathFoto, TipoAnimal animal, Idade idade, Pelagem pelagem,
-			String sexo, String descricao, String cuidados) {
+	public Animal(String nome, String raca, String pathFoto, String animal, String idade, String pelagem,
+			String sexo, String descricao, String cuidados, Boolean isAdotado) {
 		this.nome = nome;
 		this.raca = raca;
 		this.pathFoto = pathFoto;
@@ -59,6 +52,7 @@ public class Animal {
 		this.sexo = sexo;
 		this.descricao = descricao;
 		this.cuidados = cuidados;
+		this.isAdotado = isAdotado;
 	}
 
 
@@ -94,27 +88,27 @@ public class Animal {
 		this.descricao = descricao;
 	}
 
-	public TipoAnimal getAnimal() {
+	public String getAnimal() {
 		return animal;
 	}
 
-	public void setAnimal(TipoAnimal animal) {
+	public void setAnimal(String animal) {
 		this.animal = animal;
 	}
 
-	public Idade getIdade() {
+	public String getIdade() {
 		return idade;
 	}
 
-	public void setIdade(Idade idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
 
-	public Pelagem getPelagem() {
+	public String getPelagem() {
 		return pelagem;
 	}
 
-	public void setPelagem(Pelagem pelagem) {
+	public void setPelagem(String pelagem) {
 		this.pelagem = pelagem;
 	}
 
@@ -141,5 +135,12 @@ public class Animal {
 	public void setRaca(String raca) {
 		this.raca = raca;
 	}
-	
+
+	public Boolean getisAdotado() {
+		return isAdotado;
+	}
+
+	public void setisAdotado(Boolean isAdotado) {
+		this.isAdotado = isAdotado;
+	}
 }

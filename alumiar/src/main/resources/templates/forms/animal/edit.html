@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layout/head">
+	<head>
+		<meta charset="UTF-8"/>
+        <title>Alumiar/menu</title>
+    </head>
+<body>
+    <section class="corpo">
+        <h1 class="fonte-titulo">Formulário de Catalogação</h1>
+        <form class="fonte-textos" th:object="${animalObj}" th:action="@{/admin/animais/save}" method="POST" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}" />
+            <article>
+                <h4>Nome: </h4>
+                <input class="input-formulario" type="text" name="nomeAnimal" th:field="*{nome}"/>
+            </article>
+
+            <article  >
+                <h4 >Raça:</h4>
+                <input class="input-formulario" type="text" name="raca" th:field="*{raca}"/>
+            </article>
+
+            <article>
+                <h4>Tipo:</h4>
+                <input type="radio" checked="checked" name="tipoAnimal" value="Cachorro" th:field="*{animal}"/>Cachorro
+                <input type="radio" name="tipoAnimal" value="Gato" th:field="*{animal}"/>Gato
+            </article>
+
+            <article>
+                <h4>Sexo:</h4>
+                <input type="radio" checked="checked" name="sexo" value="Fêmea" th:field="*{sexo}"/>Fêmea
+                <input type="radio" name="sexo" value="Macho" th:field="*{sexo}"/>Macho
+            </article>
+
+            <article>
+                <h4>Pelagem:</h4>
+                <input type="radio" checked="checked" name="pelagem" value="Curta" th:field="*{pelagem}"/>Curta
+                <input type="radio" name="pelagem" value="Média" th:field="*{pelagem}"/>Média
+                <input type="radio" name="pelagem" value="longa" th:field="*{pelagem}"/>Longa   
+            </article>  
+
+            <article>
+                <h4>Idade:</h4>
+                <input type="radio" checked="checked" name="idade" value="Filhote" th:field="*{idade}"/>Filhote
+                <input type="radio" name="idade" value="Adulto" th:field="*{idade}"/>Adulto
+                <input type="radio" name="idade" value="Idoso" th:field="*{idade}"/>Idoso
+            </article> 
+
+            <article>
+                <h4>Descrição:</h4>
+                <input class="input-formulario" type="text" name="desc" th:field="*{descricao}"/> 
+            </article>
+
+            <article>
+                <h4>Cuidados especiais:</h4>
+                <input class="input-formulario" type="text" name="cuidados" th:field="*{cuidados}"/>
+            </article>
+                        
+		    <article>
+                <h4>Status:</h4>
+                <input class="input-formulario" type="radio" checked="checked" name="isAdotado" value="true" th:field="*{isAdotado}"/>Adotado
+                <input class="input-formulario" type="radio" name="isAdotado" value="false" th:field="*{isAdotado}"/>Não Adotado
+            </article>
+
+            <article>
+                <h4>Selecione a foto do bixinho: </h4>
+                <input class= "img-animal" type="file" name="myImage" th:value="${pathFoto}"/>
+            </article>
+
+            <article class="botao">
+                <input class="input-botao-cadastrar" type="submit" value="Cadastrar"></input> 
+                <input class="input-botao-cancelar" type="submit" value="Cancelar"></input>
+            </article>       
+
+        </form>
+    </section>
+    
+</body>
+</html>

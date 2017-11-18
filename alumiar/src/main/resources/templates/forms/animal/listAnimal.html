@@ -17,12 +17,7 @@
 			<p th:text="${message}">success message</p>
 		</div>
 		<div>
-			<a class="btn btn-info pull-right" th:href="@{/admin/animais/form}">Voltar</a>
-		</div>
-		<div th:each="file : ${files}">
-			<ul>
-				<li><img width="100" th:src="${file}"/></li>
-			</ul>
+			<a class="btn btn-info pull-right" th:href="@{/admin/animais/form}">Novo</a>
 		</div>
 		<div id="listaAnimais">
 			<table class="table table-hover">
@@ -38,6 +33,7 @@
 						<th>SEXO</th>
 						<th>DESCRIÇÂO</th>
 						<th>CUIDADOS</th>
+						<th>STATUS</th>
 						<th>EDITAR</th>
 						<th>APAGAR</th>
 					</tr>
@@ -45,7 +41,7 @@
 
 				<tr th:each="animal : ${animais}">
 					<td><span th:text="${animal.id}"></span></td>
-					<td><span th:text="${animal.pathFoto}"></span></td>
+					<td><img width="200" th:src="@{/files/} + ${animal.pathFoto}"/></td>
 					<td><span th:text="${animal.animal}"></span></td>
 					<td><span th:text="${animal.nome}"></span></td>
 					<td><span th:text="${animal.raca}"></span></td>
@@ -54,8 +50,12 @@
 					<td><span th:text="${animal.sexo}"></span></td>
 					<td><span th:text="${animal.descricao}"></span></td>
 					<td><span th:text="${animal.cuidados}"></span></td>
-					<td><a href="#" th:href="@{/admin/animais/edit/} + ${animal.id}">Editar</a></td>
-					<td><a href="#" th:href="@{/admin/animais/delete/} + ${animal.id}">Delete</a></td>
+					<td>
+						<span th:if="${animal.isAdotado}">Adotado</span>
+						<span th:unless="${animal.isAdotado}">Não Adotado</span>
+					</td>
+					<td><a class="btn btn-warning" href="#" th:href="@{/admin/animais/edit/} + ${animal.id}">Editar</a></td>
+					<td><a class="btn btn-danger" href="#" th:href="@{/admin/animais/delete/} + ${animal.id}">Delete</a></td>
 				</tr>
 			</table>
 		</div>
