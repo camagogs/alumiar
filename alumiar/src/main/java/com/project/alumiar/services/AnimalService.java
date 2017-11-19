@@ -20,7 +20,7 @@ public class AnimalService {
 	}
 	
 	public Animal salvar(Animal animal) {
-		return repository.save(animal);
+		return repository.saveAndFlush(animal);
 	}
 	
 	

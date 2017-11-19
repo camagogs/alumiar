@@ -42,7 +42,7 @@
 				<tr th:each="animal : ${animais}">
 					<td><span th:text="${animal.id}"></span></td>
 					<td><img width="200" th:src="@{/files/} + ${animal.pathFoto}"/></td>
-					<td><span th:text="${animal.animal}"></span></td>
+					<td><span th:text="${animal.tipoAnimal}"></span></td>
 					<td><span th:text="${animal.nome}"></span></td>
 					<td><span th:text="${animal.raca}"></span></td>
 					<td><span th:text="${animal.idade}"></span></td>

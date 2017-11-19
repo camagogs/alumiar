@@ -23,7 +23,7 @@ public class Animal {
 	public Boolean isAdotado;
 	
 	@Column(name= "tipo_animal")
-	private String animal;
+	private String tipoAnimal;
 	
 	@Column(name="faixa_etaria")
 	private String idade;
@@ -41,12 +41,12 @@ public class Animal {
 		
 	}
 	
-	public Animal(String nome, String raca, String pathFoto, String animal, String idade, String pelagem,
+	public Animal(String nome, String raca, String pathFoto, String tipoAnimal, String idade, String pelagem,
 			String sexo, String descricao, String cuidados, Boolean isAdotado) {
 		this.nome = nome;
 		this.raca = raca;
 		this.pathFoto = pathFoto;
-		this.animal = animal;
+		this.tipoAnimal = tipoAnimal;
 		this.idade = idade;
 		this.pelagem = pelagem;
 		this.sexo = sexo;
@@ -88,12 +88,12 @@ public class Animal {
 		this.descricao = descricao;
 	}
 
-	public String getAnimal() {
-		return animal;
+	public String getTipoAnimal() {
+		return tipoAnimal;
 	}
 
-	public void setAnimal(String animal) {
-		this.animal = animal;
+	public void setTipoAnimal(String tipoAnimal) {
+		this.tipoAnimal = tipoAnimal;
 	}
 
 	public String getIdade() {

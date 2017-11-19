@@ -1,80 +1,100 @@
 <!DOCTYPE html>
-<html lang="en"
-	xmlns:th="http://www.thymeleaf.org"
-	layout:decorator="layout/head">
-	<head>
-		<meta charset="UTF-8"/>
-        <title>Alumiar/menu</title>
-    </head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Editar Animal</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
-    <section class="corpo">
-        <h1 class="fonte-titulo">Formulário de Catalogação</h1>
-        <form class="fonte-textos" th:object="${animalObj}" th:action="@{/admin/animais/save}" method="POST" enctype="multipart/form-data">
-            <input type="hidden" th:field="*{id}" />
-            <article>
-                <h4>Nome: </h4>
-                <input class="input-formulario" type="text" name="nomeAnimal" th:field="*{nome}"/>
-            </article>
-
-            <article  >
-                <h4 >Raça:</h4>
-                <input class="input-formulario" type="text" name="raca" th:field="*{raca}"/>
-            </article>
-
-            <article>
-                <h4>Tipo:</h4>
-                <input type="radio" checked="checked" name="tipoAnimal" value="Cachorro" th:field="*{animal}"/>Cachorro
-                <input type="radio" name="tipoAnimal" value="Gato" th:field="*{animal}"/>Gato
-            </article>
-
-            <article>
-                <h4>Sexo:</h4>
-                <input type="radio" checked="checked" name="sexo" value="Fêmea" th:field="*{sexo}"/>Fêmea
-                <input type="radio" name="sexo" value="Macho" th:field="*{sexo}"/>Macho
-            </article>
-
-            <article>
-                <h4>Pelagem:</h4>
-                <input type="radio" checked="checked" name="pelagem" value="Curta" th:field="*{pelagem}"/>Curta
-                <input type="radio" name="pelagem" value="Média" th:field="*{pelagem}"/>Média
-                <input type="radio" name="pelagem" value="longa" th:field="*{pelagem}"/>Longa   
-            </article>  
-
-            <article>
-                <h4>Idade:</h4>
-                <input type="radio" checked="checked" name="idade" value="Filhote" th:field="*{idade}"/>Filhote
-                <input type="radio" name="idade" value="Adulto" th:field="*{idade}"/>Adulto
-                <input type="radio" name="idade" value="Idoso" th:field="*{idade}"/>Idoso
-            </article> 
-
-            <article>
-                <h4>Descrição:</h4>
-                <input class="input-formulario" type="text" name="desc" th:field="*{descricao}"/> 
-            </article>
-
-            <article>
-                <h4>Cuidados especiais:</h4>
-                <input class="input-formulario" type="text" name="cuidados" th:field="*{cuidados}"/>
-            </article>
-                        
-		    <article>
-                <h4>Status:</h4>
-                <input class="input-formulario" type="radio" checked="checked" name="isAdotado" value="true" th:field="*{isAdotado}"/>Adotado
-                <input class="input-formulario" type="radio" name="isAdotado" value="false" th:field="*{isAdotado}"/>Não Adotado
-            </article>
-
-            <article>
-                <h4>Selecione a foto do bixinho: </h4>
-                <input class= "img-animal" type="file" name="myImage" th:value="${pathFoto}"/>
-            </article>
-
-            <article class="botao">
-                <input class="input-botao-cadastrar" type="submit" value="Cadastrar"></input> 
-                <input class="input-botao-cancelar" type="submit" value="Cancelar"></input>
-            </article>       
-
-        </form>
-    </section>
-    
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Cadastro de Posts</strong>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${animalObj}" th:action="@{/admin/animais/save}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 					
+						<div class="form-group row">
+						    <div class="col-md-1">
+						        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
+						    </div>
+						 </div>
+						<div class="form-group row">                                                          
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+							    <label>Nome</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o Nome" maxlength="50"/>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('raca')}? 'has-error'">
+								<label>Raça</label> 
+								<input type="text" class="form-control input-sm" th:field="*{raca}" maxlength="150" placeholder="Informe o Raça"/>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('tipoAnimal')}? 'has-error'">
+								<label>Tipo</label> 
+								<input type="radio" class="radio radio-inline" th:field="*{tipoAnimal}" value="Cachorro"/> Cachorro
+								<input type="radio" class="radio radio-inline" th:field="*{tipoAnimal}" value="Gato"/> Gato
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('sexo')}? 'has-error'">
+								<label>Sexo</label> 
+								<input type="radio" class="radio radio-inline" th:field="*{sexo}" value="Macho"/> Macho
+								<input type="radio" class="radio radio-inline" th:field="*{sexo}" value="Femea"/> Femea
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('pelagem')}? 'has-error'">
+								<label>Pelagem</label> 
+								<input type="radio" class="radio radio-inline" th:field="*{pelagem}" value="Curta"/> Curta
+								<input type="radio" class="radio radio-inline" th:field="*{pelagem}" value="Media"/> Média
+								<input type="radio" class="radio radio-inline" th:field="*{pelagem}" value="Longa"/> Longa
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('idade')}? 'has-error'">
+								<label>Idade</label> 
+								<input type="radio" class="radio radio-inline" th:field="*{idade}" value="Filhote"/> Filhote
+								<input type="radio" class="radio radio-inline" th:field="*{idade}" value="Adulto"/> Adulto
+								<input type="radio" class="radio radio-inline" th:field="*{idade}" value="Idoso"/> Idoso
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('descricao')}? 'has-error'">
+								<label>Descrição</label>
+								<textarea class="form-control input-sm" th:field="*{descricao}" cols="5" rows="5" placeholder="Informe a Descrição"></textarea>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('cuidados')}? 'has-error'">
+								<label>Cuidados</label>
+								<textarea class="form-control input-sm" th:field="*{cuidados}" cols="5" rows="5" placeholder="Informe os cuidados especiais que ele precisa"></textarea>
+							</div>
+						</div>					
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

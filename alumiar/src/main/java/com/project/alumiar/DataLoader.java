@@ -24,6 +24,8 @@ public class DataLoader {
 		
 		a.setNome("Billy");
 		
+		a.setPathFoto("dog.jpg");
+		
 		repository.save(a);
 		
 	}

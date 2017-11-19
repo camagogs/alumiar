@@ -2,6 +2,8 @@ package com.project.alumiar.controllers;
 
 import java.io.IOException;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -12,21 +14,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.project.alumiar.models.Animal;
 import com.project.alumiar.services.AnimalService;
 import com.project.alumiar.services.StorageService;
 import com.project.alumiar.storage.StorageFileNotFoundException;
-
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 @Controller
 public class AnimalController {
@@ -50,13 +48,12 @@ public class AnimalController {
 	}
 	
 	@RequestMapping("/admin/animais/listar")
-	public String listar(Model model) throws IOException {
+	public ModelAndView listar() {
 		
-		Iterable<Animal> animais = service.obterTodos();
+		ModelAndView mv = new ModelAndView("forms/animal/listAnimal");
+		mv.addObject("animais", service.obterTodos());
 		
-		model.addAttribute("animais", animais);
-		
-		return "forms/animal/listAnimal";
+		return mv;
 	}
 
 	@GetMapping("/files/{filename:.+}")
@@ -75,20 +72,32 @@ public class AnimalController {
 	}
 	
 	@RequestMapping("admin/animais/edit/{id}")
-	public String edit(@PathVariable Long id, ModelMap model) {
-		model.put("animalObj", service.editar(id));
-		return "forms/animal/edit";
+	public ModelAndView edit(@PathVariable Long id) {
+		
+		return add(service.editar(id));
+	}
+	
+	@GetMapping("/add")
+	public ModelAndView add(Animal animal) {
+		
+		ModelAndView mv = new ModelAndView("/forms/animal/edit");
+		mv.addObject("animalObj", animal);
+		
+		return mv;
 	}
 	
 	@RequestMapping(value = "/admin/animais/save", method = RequestMethod.POST)
-	public String save(@ModelAttribute("animalObj") Animal animal,
-			BindingResult bindresult, ModelMap model) {
+	public ModelAndView save(@Valid Animal animal,
+			BindingResult bindresult) {
 		
 		if(bindresult.hasErrors()) {
 			
-			model.addAttribute("animais", service.salvar(animal));
+			return add(animal);
 		} 
-		return "redirect:/admin/animais/listar";
+		
+		service.salvar(animal);
+		
+		return listar();
 	}
 	
 	@RequestMapping(value = "/form/admin/cadastraAnimal", method = RequestMethod.POST)
