@@ -22,9 +22,9 @@ public class DataLoaderNews {
 	private void createNewsLetter() {
 		NewsLetter n = new NewsLetter();
 		
-		n.setNome("Thanisa");
+		n.setNome("Braullio");
 		
-		n.setEmail("thanisiagoncalves@gmail.com");
+		n.setEmail("braullio.soares_2012@hotmail.com");
 		
 		newsrepository.save(n);
 		

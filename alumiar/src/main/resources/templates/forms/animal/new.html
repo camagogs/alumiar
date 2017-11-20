@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="en"
-	xmlns:th="http://www.thymeleaf.org"
-	layout:decorator="layout/head">
+	xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Alumiar/menu</title>
     </head>
 <body>
-    <section class="corpo">
-        <h1 class="fonte-titulo">Formulário de Catalogação</h1>
-        <form class="fonte-textos" action="/form/admin/cadastraAnimal" method="POST" enctype="multipart/form-data">
-            <article>
-                <h4>Nome: </h4>
-                <input class="input-formulario" type="text" name="nomeAnimal"/>
-            </article>
-
-            <article  >
-                <h4 >Raça:</h4>
-                <input class="input-formulario" type="text" name="raca"/>
-            </article>
-
-            <article>
-                <h4>Tipo:</h4>
-                <input type="radio" checked="checked" name="tipoAnimal" value="Cachorro"/>Cachorro
-                <input type="radio" name="tipoAnimal" value="Gato"/>Gato
-            </article>
-
-            <article>
-                <h4>Sexo:</h4>
-                <input type="radio" checked="checked" name="sexo" value="Fêmea"/>Fêmea
-                <input type="radio" name="sexo" value="Macho"/>Macho
-            </article>
-
-            <article>
-                <h4>Pelagem:</h4>
-                <input type="radio" checked="checked" name="pelagem" value="Curta"/>Curta
-                <input type="radio" name="pelagem" value="Média"/>Média
-                <input type="radio" name="pelagem" value="Longa"/>Longa   
-            </article>  
-
-            <article>
-                <h4>Idade:</h4>
-                <input type="radio" checked="checked" name="idade" value="Filhote"/>Filhote
-                <input type="radio" name="idade" value="Adulto"/>Adulto
-                <input type="radio" name="idade" value="Idoso"/>Idoso
-            </article> 
-
-            <article>
-                <h4>Descrição:</h4>
-                <input class="input-formulario" type="text" name="desc"/> 
-            </article>
-
-            <article>
-                <h4>Cuidados especiais:</h4>
-                <input class="input-formulario" type="text" name="cuidados"/>
-            </article>
-                        
-		    <article>
-                <h4>Status:</h4>
-                <input class="input-formulario" type="radio" checked="checked" name="isAdotado" value="true"/>Adotado
-                <input class="input-formulario" type="radio" name="isAdotado" value="false"/>Não Adotado
-            </article>
-
-            <article>
-                <h4>Selecione a foto do bixinho: </h4>
-                <input class= "img-animal" type="file" name="myImage" required="required"/>
-            </article>
-
-            <article class="botao">
-                <input class="input-botao-cadastrar" type="submit" value="Cadastrar"></input> 
-                <input class="input-botao-cancelar" type="submit" value="Cancelar"></input>
-            </article>       
-
+    <section class="panel panel-default container">
+        <div class="panel-heading ">
+			<strong>Formulário de Catalogação</strong>
+		</div>
+    	<div class="panel-body">  
+        <form class="form-horizontal" action="/form/admin/cadastraAnimal" method="POST" enctype="multipart/form-data">
+           <div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">                                                          
+							<div class="col-md-4">
+							    <label>Nome</label>
+							    <input type="text" class="form-control input-sm" name="nomeAnimal" autofocus="autofocus" placeholder="Informe o Nome" maxlength="50"/>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Raça</label> 
+								<input type="text" class="form-control input-sm" name="raca" maxlength="150" placeholder="Informe o Raça"/>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Tipo</label> 
+								<input type="radio" checked="checked" class="radio radio-inline" name="tipoAnimal" value="Cachorro"/> Cachorro
+								<input type="radio" class="radio radio-inline" name="tipoAnimal" value="Gato"/> Gato
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Sexo</label> 
+								<input type="radio" checked="checked" class="radio radio-inline" name="sexo" value="Macho"/> Macho
+								<input type="radio" class="radio radio-inline" name="sexo" value="Femea"/> Femea
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Pelagem</label> 
+								<input type="radio" checked="checked" class="radio radio-inline" name="pelagem" value="Curta"/> Curta
+								<input type="radio" class="radio radio-inline" name="pelagem" value="Media"/> Média
+								<input type="radio" class="radio radio-inline" name="pelagem" value="Longa"/> Longa
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Idade</label> 
+								<input type="radio" checked="checked" class="radio radio-inline" name="idade" value="Filhote"/> Filhote
+								<input type="radio" class="radio radio-inline" name="idade" value="Adulto"/> Adulto
+								<input type="radio" class="radio radio-inline" name="idade" value="Idoso"/> Idoso
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Descrição</label>
+								<textarea class="form-control input-sm" name="desc" cols="5" rows="5" placeholder="Informe a Descrição"></textarea>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<div class="col-md-4">
+								<label>Cuidados</label>
+								<textarea class="form-control input-sm" name="cuidados" cols="5" rows="5" placeholder="Informe os cuidados especiais que ele precisa"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" >
+								<label>Status</label> 
+								<input type="radio" class="radio radio-inline" name="isAdotado" value="Adotado"/> Adotado
+								<input type="radio" checked="checked" class="radio radio-inline" name="isAdotado" value="Não Adotado"/> Não Adotado
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" >
+								<label>Selecione a foto do bixinho:</label> 
+								<input class="radio radio-inline" type="file" name="myImage" required="required"/>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/admin/animais/listar}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
         </form>
+        </div>
     </section>
     
 </body>

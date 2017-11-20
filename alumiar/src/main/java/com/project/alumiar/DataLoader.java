@@ -23,7 +23,14 @@ public class DataLoader {
 		Animal a = new Animal();
 		
 		a.setNome("Billy");
-		
+		a.setTipoAnimal("Cachorro");
+		a.setRaca("Labrador");
+		a.setSexo("Macho");
+		a.setIsAdotado("Não Adotado");
+		a.setCuidados("Ração especial sem glúten");
+		a.setIdade("Filhote");
+		a.setDescricao("Billy é um cachorro dócil e brincalhão, gosta de passear e brincar com sua bola.");
+		a.setPelagem("Curta");
 		a.setPathFoto("dog.jpg");
 		
 		repository.save(a);
