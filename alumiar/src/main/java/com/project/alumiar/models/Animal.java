@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity(name="animal")
 public class Animal {
-
+	
 	@Id
 	@GeneratedValue( strategy=GenerationType.IDENTITY )
 	private Long id;
@@ -20,8 +20,10 @@ public class Animal {
 	
 	private String pathFoto;
 	
-	public Boolean isAdotado;
+	private String isAdotado;
 	
+	private Boolean statusAdocao = false;
+
 	@Column(name= "tipo_animal")
 	private String tipoAnimal;
 	
@@ -42,7 +44,7 @@ public class Animal {
 	}
 	
 	public Animal(String nome, String raca, String pathFoto, String tipoAnimal, String idade, String pelagem,
-			String sexo, String descricao, String cuidados, Boolean isAdotado) {
+			String sexo, String descricao, String cuidados, String isAdotado) {
 		this.nome = nome;
 		this.raca = raca;
 		this.pathFoto = pathFoto;
@@ -136,11 +138,23 @@ public class Animal {
 		this.raca = raca;
 	}
 
-	public Boolean getisAdotado() {
+	public String getIsAdotado() {
 		return isAdotado;
 	}
 
-	public void setisAdotado(Boolean isAdotado) {
+	public void setIsAdotado(String isAdotado) {
+		
+		if(isAdotado == "Adotado")
+			this.statusAdocao = true;
+		
 		this.isAdotado = isAdotado;
+	}
+
+	public Boolean getStatusAdocao() {
+		return statusAdocao;
+	}
+
+	public void setStatusAdocao(Boolean statusAdocao) {
+		this.statusAdocao = statusAdocao;
 	}
 }

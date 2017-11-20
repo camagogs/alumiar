@@ -36,15 +36,16 @@
             </article>
             <article class="footer-form">
                 <h3 class="secao-textos alinhar-texto-centro">ACOMPANHE OS ANIMAIS QUE CHEGAM PARA ADOÇÃO </h3>
-                <form class="secao">
-                    <div>
-                         <input  class="campo-form" type="text" placeholder="Nome" />
-                         <input class="campo-form" type="text" placeholder="Email" />
-                    </div>
-                </form>
-                <div class="botao-form bg-branco">
-                        Acompanhar
-                </div>
+			    	<!-- Formulário da NewsLetter -->
+			        <form class="secao" action="/admin/newsletter/saveEmail" method="POST">
+			        	<div>
+			            	<input  class="campo-form" type="text" name="nome" placeholder="Nome"/>
+			                <input class="campo-form" type="text" name="email" placeholder="Email"/>
+		                    <div>
+		                    	<input class="botao-form bg-branco" type="submit" value="Acompanhar"/>
+  		              		</div>
+			            </div>
+			        </form>
             </article >  
             <article class=" secao-textos alinhar-texto-centro rodape">
                <p>2017 ~ Alumiar. Todos os direitos reservados.</p>

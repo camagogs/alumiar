@@ -1,16 +1,16 @@
 package com.project.alumiar.controllers;
 
-import java.io.IOException;
-
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,20 +21,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.project.alumiar.models.Animal;
 import com.project.alumiar.services.AnimalService;
+import com.project.alumiar.services.NotificationService;
 import com.project.alumiar.services.StorageService;
 import com.project.alumiar.storage.StorageFileNotFoundException;
 
 @Controller
 public class AnimalController {
 	
-	private boolean isAdotado = true;
-	
 	@Autowired
 	private AnimalService service;
 	
+	@Autowired
+	private NotificationService ns;
+	
 	private final StorageService storageService;
+	
+	private Logger logger = LoggerFactory.getLogger(AnimalController.class);
 	
     @Autowired
     public AnimalController(StorageService storageService) {
@@ -77,7 +82,7 @@ public class AnimalController {
 		return add(service.editar(id));
 	}
 	
-	@GetMapping("/add")
+	@GetMapping("admin/animais/add")
 	public ModelAndView add(Animal animal) {
 		
 		ModelAndView mv = new ModelAndView("/forms/animal/edit");
@@ -89,7 +94,7 @@ public class AnimalController {
 	@RequestMapping(value = "/admin/animais/save", method = RequestMethod.POST)
 	public ModelAndView save(@Valid Animal animal,
 			BindingResult bindresult) {
-		
+	
 		if(bindresult.hasErrors()) {
 			
 			return add(animal);
@@ -115,11 +120,20 @@ public class AnimalController {
 				
 		try {
 			
-			Animal animal = new Animal(nome, raca, file.getOriginalFilename(), tipo, idade, pelagem, sexo, descricao, cuidados,isAdotado);
+			Animal animal = new Animal(nome, raca, file.getOriginalFilename(), tipo, idade, pelagem, sexo, descricao, cuidados, adocao);
 			
 			storageService.store(file);
 			
 			service.salvar(animal);
+			
+			try {
+				
+				ns.sendNotificaitoin();
+				
+			} catch (MailException me) {
+				logger.info("Error Sending Email: " + me.getMessage());
+			}
+			
 			
 		} catch (Exception e) {
 			redirectAtt.addFlashAttribute("msgError", e.getMessage());

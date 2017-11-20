@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Animais</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h2>LISTA DE E-MAILS</h2>
+		</div>
+		<div id="listaAnimais">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>NOME</th>
+						<th>EMAIL</th>
+					</tr>
+				</thead>
+
+				<tr th:each="user : ${users}">
+					<td><span th:text="${user.id}"></span></td>
+					<td><span th:text="${user.nome}"></span></td>
+					<td><span th:text="${user.email}"></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>		
+</body>
+</html>	

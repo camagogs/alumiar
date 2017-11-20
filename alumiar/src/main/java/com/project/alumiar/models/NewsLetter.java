@@ -15,6 +15,16 @@ public class NewsLetter {
 	private String nome;
 	
 	private String email;
+	
+	public NewsLetter() {
+		
+	}
+	
+	public NewsLetter(String nome, String email) {
+
+		this.nome = nome;
+		this.email = email;
+	}
 
 	public Long getId() {
 		return id;

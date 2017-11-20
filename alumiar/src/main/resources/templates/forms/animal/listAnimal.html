@@ -50,10 +50,8 @@
 					<td><span th:text="${animal.sexo}"></span></td>
 					<td><span th:text="${animal.descricao}"></span></td>
 					<td><span th:text="${animal.cuidados}"></span></td>
-					<td>
-						<span th:if="${animal.isAdotado}">Adotado</span>
-						<span th:unless="${animal.isAdotado}">Não Adotado</span>
-					</td>
+					<td><span th:text="${animal.isAdotado}"></span></td>
+					
 					<td><a class="btn btn-warning" href="#" th:href="@{/admin/animais/edit/} + ${animal.id}">Editar</a></td>
 					<td><a class="btn btn-danger" href="#" th:href="@{/admin/animais/delete/} + ${animal.id}">Delete</a></td>
 				</tr>

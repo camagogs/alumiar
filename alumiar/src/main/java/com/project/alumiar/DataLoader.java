@@ -17,7 +17,7 @@ public class DataLoader {
 	public DataLoader (AnimalRepository repository) {
 		this.repository = repository;
 	}
-	
+
 	@PostConstruct
 	private void createAnimal() {
 		Animal a = new Animal();
@@ -29,5 +29,4 @@ public class DataLoader {
 		repository.save(a);
 		
 	}
-
 }
