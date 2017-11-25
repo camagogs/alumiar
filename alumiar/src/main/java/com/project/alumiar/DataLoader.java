@@ -33,7 +33,22 @@ public class DataLoader {
 		a.setPelagem("Curta");
 		a.setPathFoto("dog.jpg");
 		
+		Animal g = new Animal();
+		
+		g.setNome("Belinha");
+		g.setTipoAnimal("Gato");
+		g.setRaca("Indefinido");
+		g.setSexo("Fêmea");
+		g.setIsAdotado("Não Adotado");
+		g.setCuidados("Ração especial sem glúten");
+		g.setIdade("Adulto");
+		g.setDescricao("Belinha é uma gata dócil.");
+		g.setPelagem("Longa");
+		g.setPathFoto("cat.png");
+		
 		repository.save(a);
+		
+		repository.save(g);
 		
 	}
 }

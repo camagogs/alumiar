@@ -128,7 +128,7 @@ public class AnimalController {
 			
 			try {
 				
-				ns.sendNotificaitoin();
+				//ns.sendNotificaitoin();
 				
 			} catch (MailException me) {
 				logger.info("Error Sending Email: " + me.getMessage());

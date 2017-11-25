@@ -2,45 +2,352 @@
 <html lang="en"
 	xmlns:th="http://www.thymeleaf.org"
 	layout:decorator="layout/head">
-	<head>
-		<meta charset="UTF-8"/>
-        <title>Alumiar/menu</title>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Alumiar</title>
     </head>
     <body>
-            <section class="barra-fixa secao bg-branco">
-                    <img src="/img/barra.png" alt=""/>
-            </section>
-            <!-- Inicio -->
-            <section class="secao secao-tamanho bg-azul-escuro margin-barra">
-                <article >
-                    <img class="logo" src="./img/logogif.gif" alt=""/>
-                    <h1 class="secao-titulo titulo-inicio color-amarelo">Alumiar</h1>
-    
-                </article>
-            </section>  
+
+        <!-- Barra -->
         <section class="barra-fixa secao bg-branco">
-            <img src="./img/fechar-menu.png" alt=""/>
-        </section>
+            <div class="sanduiche" id="sanduiche">
+                <img src="img/barrinha.png" alt="" class="barra" id="barrinha1"/>
+                <img src="img/barrinha.png" alt="" class="barra" id="barrinha2"/>
+                <img src="img/barrinha.png" alt="" class="barra" id="barrinha3"/>
+            </div>
+        </section> 
+         <!-- Menu -->
+         <section class="menu">
 
-        <a href="/o_projeto"><section class="secao secao-estrutura-titulo bg-amarelo margin-barra" id="secao-projeto-titulo">
-            <h1 class="secao-titulo color-branco">O projeto</h1>
-        </section></a>
-        <a href="ensaios"><section class="secao secao-estrutura-titulo bg-turquesa" id="secao-ensaio-titulo">
-            <h1 class="secao-titulo color-branco" >Ensaios</h1>
-        </section></a>
-        <a href="adote"><section class="secao secao-estrutura-titulo bg-laranja">
-            <h1 class="secao-titulo color-branco">Adoção</h1>
-        </section></a>
-        <a href="apoio"><section class="secao secao-estrutura-titulo bg-vermelho">
-            <h1 class="secao-titulo color-branco">Apoio</h1>
-        </section></a>
-        <a href="sobre_nos"><section class="secao secao-estrutura-titulo bg-azul-escuro">
-            <h1 class="secao-titulo color-branco">Sobre nós</h1>
-        </section></a>
-        <section class="sociais-menu">
-            <div class="sociais-menu-img bg-face-menu bg-img-estrutura"></div>
-            <div class="sociais-menu-img bg-insta-menu bg-img-estrutura"></div>
-        </section>
+            <section class="secao secao-estrutura-titulo bg-amarelo margin-barra" id="secao-projeto-titulo">
+            	<a class="scrollSuave secao-titulo color-branco" href="#secao-projeto">O projeto</a>
+            </section>
 
+            <section class="secao secao-estrutura-titulo bg-turquesa" id="secao-ensaio-titulo">
+                <a class="scrollSuave secao-titulo color-branco" href="#ensaio">Ensaios</a>
+            </section>
+
+            
+            <section class="secao secao-estrutura-titulo bg-laranja">
+              <a class="scrollSuave secao-titulo color-branco" href="#secao-adocao">Adoção</a>
+            </section>
+
+
+            <section class="secao secao-estrutura-titulo bg-vermelho">
+            <a class="scrollSuave secao-titulo color-branco" href="#secao-apoio">Apoio</a>
+            </section>
+
+
+            <section class="secao secao-estrutura-titulo bg-azul-escuro">
+            <a class="scrollSuave secao-titulo color-branco" href="#secao-sobre">Sobre nós</a>
+            </section>
+            
+            <section class="sociais-menu">
+                 <div class="sociais-menu-img bg-face-menu bg-img-estrutura"></div>
+                
+                <div class="sociais-menu-img bg-insta-menu bg-img-estrutura"></div>
+            </section>
+        </section>
+        <!-- Inicio -->
+        <section class="secao secao-tamanho bg-azul-escuro margin-barra">
+            <article class="secao">
+                <div>
+                    <img class="logo" src="img/logogif.gif" alt=""/>  
+                </div>
+            </article>
+        </section>  
+        <!-- Projeto -->
+        <section  class="bg-branco">
+            <article id= "secao-projeto" class="secao-tamanho margin-barra">
+                <section class=" secao">
+                    <img class="img-sobre" src="img/projeto.gif" />
+                </section>
+                <section class="texto-o-projeto">
+                    <p class="secao-textos alinhar-texto-centro color-azul-escuro">O Alumiar é uma 
+                    <b class="secao-texto-bold">ação</b> que nasce no <b class="secao-texto-bold">coração do 
+                    sertão</b> central com a proposta de dar luz ao trabalho voluntário feito pelos projetos 
+                    sociais de <b class="secao-texto-bold">apoio aos animais abandonados</b>            
+                    na cidade de Quixadá.</p>
+                </section>
+            </article>
+            <!-- parte2 -->
+            <article >
+                <section class="secao">
+                    <h1 class="secao-titulo color-amarelo">Porque Alumiar?</h1>
+                </section>
+                <section>
+                    <section>
+                        <div class="secao">
+                            <img class="margin-barra" src="img/Ativo 14.png" />
+                        </div>
+                        <h3 class="secao-subtitulo color-amarelo alinhar-texto-centro">Ajudar projetos sociais</h3>
+                        <p class="secao-textos alinhar-texto-centro color-azul-escuro">Na cidade de Quixadá existem muitos projetos sociais que 
+                            realizam o trabaho de ajudar bichinhos abandonados com muito amor e carinho, porém, 
+                            também com muitas dificuldades. Eles lidam com problemas como falta de sede para abrigar 
+                            os animais,
+                            poucos recursos e poucas adoções.</p>
+                    </section>
+                    <section>
+                        <div class="secao ">
+                            <img class="margin-barra" src="img/Ativo 15.png" />
+                        </div>
+                        <h3 class="secao-subtitulo color-amarelo alinhar-texto-centro">Dar visibilidade aos Lares Temporários</h3>
+                        <p class="secao-textos alinhar-texto-centro color-azul-escuro">Os animais encontrados em estado de abandono são 
+                            abrigados pelos voluntários, que transformam suas casa em lares temporários, devido a 
+                            falta de visibilidade e conhecimento da população, muitos desses animais permanecem 
+                            nesses locais por toda a vida, impossibilitando os voluntários abrigar novos bichinhos.</p>    
+                    </section>   
+                </section>
+            </article>
+        </section>
+        <!-- Ensaios -->
+        <section>
+            <div id="ensaio">
+                <div class="para-en">
+                    <img src="img/ensaios.png" alt=""/>
+                    <p class="en-descricao">Realizados por fotógrafos voluntários que se sensibilizaram com a causa, os ensaios visam mostrar os animais e o trabalho dos projetos sociais a partir da visão dos fotógrafos, mostrando a beleza, a individualidade e a realidade dos animais, com o intuito de conscientizar a população em relação às dificuldades e também que cada animal merece e precisa de um lar, e pode ser fonte de muito amor, compreensão e carinho.</p>
+                </div>
+                
+                <div class="para-aviso">
+                    <p>Todos os animais que aparecem nos ensaios estão disponíveis para adoção.</p>
+                    <img src="img/direcional-baixo.png" alt=""/>
+                </div>
+            </div>
+            <div class="catalogo">
+                <div class="en-1">
+                    <img class="icone-mais" src="img/icone-mais.png" alt=""/>
+                    <p class="p-ensaio">ENSAIO 1</p>
+                    <P class="p-nome">Projeto Social Mão Amiga</P>
+                    <img class="foto-en" src="img/images.jpg" alt=""/>
+                </div>
+                <div class="ensaio-detalhe">
+                    <img class="icon-down" src="img/icon-down.png" alt=""/>
+                    <p class="p-ensaio3">Nome do Ensaio</p>        
+                    <img class="insta-icon" src="img/instagram.png" alt=""/>
+                    <p class="legenda">Fotos por <span>Little Wolf</span></p><br/><br/>
+                    <p class="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <p class="esq">  </p>
+                    <P class="dir"> </P>
+                    <img class="adotar" src="img/adotar.png" alt=""/>
+                    <div id="slide-ensaio">
+                            <img id="foto-slide" src="img/historia-adocao-animal-cachorro.jpg" alt=""/>
+                            <img id="foto-slide" src="img/images.jpg" alt=""/>
+                            <img id="foto-slide" src="img/images2.jpg" alt=""/>
+                    </div>
+                    
+                </div>
+                <div class="adote-bicho">
+                    <img src="img/adote-um-bicho.png" alt=""/>
+                </div>
+            </div>  
+        </section>
+        <!-- Adoção -->
+        <section id="secao-adocao" class="margin-barra">
+            <section>
+                <h1  class="secao-titulo color-laranja secao">Adoção</h1>
+                    <p class="color-azul-escuro secao-textos alinhar-texto-centro">Ao adotar um dos 
+                        animais aqui disponíveis, você estará mudando a vida de um bichinho. </p>
+            </section>
+             <!-- catálogo -->
+             <section class="bg-laranja secao-animais">
+                 <!-- imagens do banco de dados -->
+                 <article class="divisao-animal-desc bg-branco" th:each="animal : ${animais}">
+                    <div class="sociais-menu-img">
+                        <img class= "img-catalogo" th:src="@{/files/} + ${animal.pathFoto}" alt=""/>
+                    </div>
+                    <div class="sociais-menu-img color-laranja">
+                            <h3 class="secao-textos secao-texto-bold" th:text="${animal.nome}"></h3>
+                            <p class="secao-textos ">
+                                Raça: <span th:text="${animal.raca}"></span><br/>
+                                Sexo: <span th:text="${animal.sexo}"></span><br/>
+                                Faixa Etária: <span th:text="${animal.idade}"></span><br/>
+                            </p>
+                            <div class="bg-azul-escuro"></div>
+                    </div>
+                </article>
+            </section>
+        </section>
+         <!-- Adoção-modal -->
+        <section id="modal-adocao" class="bg-branco modal">
+            <div class="sair bg-branco"> &#10006;</div>
+            <section>
+                <img class="img-modal-adocao" src="img/img1.png" alt=""/>
+            </section>
+            <section>
+                <h1 class="secao-textos secao-texto-bold color-laranja">Belinha</h1>
+                <p class="secao-textos">
+                        Raça: Indefinida<br/>
+                        Cor: Branco, Marrom e Cinza<br/>
+                        Sexo: F <br/>
+                        Olho: Cinza <br/>
+                        Pelagem: Curta <br/>
+                        Faixa Etária: Filhote<br/>
+                </p>
+                <div class="secao">
+                    <a target="_black" href="http://www.adoteumgatinho.org.br/formulario-de-adocao/11604/beyonc%C3%A9">
+                        <img class="quero-adotar" src="img/queroadotar.png" alt=""/>
+                    </a>
+                </div>
+             </section>
+        </section>
+       
+        <!-- Apoio-modal1 -->
+        <section id="modal" class="bg-vermelho modal">
+            <div class="sair bg-branco"> &#10006;</div>
+            <section class="margin-barra">
+                <section class="titulo-apoio">
+                    <section  class="secao">
+                        <img src="img/apoio-icon-3.png" />
+                        <h1  class="secao-titulo-apoio fonte-titulos margin-titulo-apoio color-branco">Conexão Animal</h1>
+                    </section>
+
+                </section>
+                <section class="secao2 bg-vermelho">
+                    <p class="secao-textos alinhar-texto-centro color-branco">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.20587562891637!2d-49.259450615659546!3d-25.428432297753726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce440cf837aef%3A0xe5ca11b7280bf2c1!2sBenjamin+Constant%2C+481-+Centro!5e0!3m2!1spt-BR!2sbr!4v1510863840700" 
+                    width="360" height="200" th:frameborder="0" style="border:0" th:allowfullscreen="" ></iframe>
+                    <p class="secao-textos alinhar-texto-centro color-branco"><br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/></p>
+                </section>
+            </section>
+        </section>
+        <!-- Apoio-modal2 -->
+        <section id="modal2" class="bg-vermelho modal">
+            <div class="sair bg-branco"> &#10006;</div>
+            <section class="margin-barra">
+                <section class="titulo-apoio">
+                    <section  class="secao">
+                        <img src="img/apoio-icon-3.png" />
+                        <h1  class="secao-titulo-apoio fonte-titulos margin-titulo-apoio color-branco">Conexão Animal</h1>
+                    </section>
+
+                </section>
+                <section class="secao2 bg-vermelho">
+                    <p class="secao-textos alinhar-texto-centro color-branco">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.20587562891637!2d-49.259450615659546!3d-25.428432297753726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce440cf837aef%3A0xe5ca11b7280bf2c1!2sBenjamin+Constant%2C+481-+Centro!5e0!3m2!1spt-BR!2sbr!4v1510863840700"
+                     width="360" height="200" th:frameborder="0" style="border:0" th:allowfullscreen=""></iframe>
+                    <p class="secao-textos alinhar-texto-centro color-branco"><br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/></p>
+                </section>
+
+            </section>
+        </section>
+        <!-- Apoio-modal3 -->
+        <section id="modal3" class="bg-vermelho modal">
+            <div class="sair bg-branco"> &#10006;</div>
+            <section class="margin-barra">
+                <section class="titulo-apoio">
+                    <section  class="secao">
+                        <img src="img/apoio-icon-3.png" />
+                        <h1  class="secao-titulo-apoio fonte-titulos margin-titulo-apoio color-branco">Conexão Animal</h1>
+                    </section>
+
+                </section>
+                <section class="secao2 bg-vermelho">
+                    <p class="secao-textos alinhar-texto-centro color-branco">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.20587562891637!2d-49.259450615659546!3d-25.428432297753726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce440cf837aef%3A0xe5ca11b7280bf2c1!2sBenjamin+Constant%2C+481-+Centro!5e0!3m2!1spt-BR!2sbr!4v1510863840700" 
+                    width="360" height="200" th:frameborder="0" style="border:0" th:allowfullscreen="" ></iframe>
+                    <p class="secao-textos alinhar-texto-centro color-branco"><br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/></p>
+                </section>
+            </section>
+        </section>
+         <!-- Apoio-modal4 -->
+         <section id="modal4" class="bg-vermelho modal">
+            <div class="sair bg-branco"> &#10006;</div>
+            <section class="margin-barra">
+                <section class="titulo-apoio">
+                    <section  class="secao">
+                        <img src="img/apoio-icon-3.png" />
+                        <h1  class="secao-titulo-apoio fonte-titulos margin-titulo-apoio color-branco">Conexão Animal</h1>
+                    </section>
+
+                </section>
+                <section class="secao2 bg-vermelho">
+                    <p class="secao-textos alinhar-texto-centro color-branco">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d225.20587562891637!2d-49.259450615659546!3d-25.428432297753726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce440cf837aef%3A0xe5ca11b7280bf2c1!2sBenjamin+Constant%2C+481-+Centro!5e0!3m2!1spt-BR!2sbr!4v1510863840700" 
+                    width="360" height="200"  th:frameborder="0" style="border:0" th:allowfullscreen="" ></iframe>
+                    <p class="secao-textos alinhar-texto-centro color-branco"><br/>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/><br/></p>
+                </section>
+
+            </section>
+        </section>
+        <!-- Apoio -->
+        <section id = "secao-apoio" class="bg-vermelho secao-tamanho margin-barra">
+            <section class="secao">
+                <h1 class="secao-titulo color-branco">Apoio</h1>
+            </section>
+            <section>
+                <section>
+                    <p class="secao-textos alinhar-texto-centro color-branco">Mesmo sem adotar, você ainda pode contribuir para que 
+                        os animais abandonados tenham uma vida melhor.</p>
+                </section>
+                <section>
+                    <p class="secao-textos alinhar-texto-centro color-branco">Você pode fazer <b>apoiar</b> de diversas formas diferentes, 
+                    veja:</p>
+                </section>
+                <article class="secao margin secao-icones-apoio">
+                    <img id="ong1" class="icone-apoio" src="img/apoio-icon-3.png" />
+                    <img id="ong2" class="icone-apoio" src="img/apoio-icon-2.png" />
+                </article>
+                <article class="secao">
+                        <img id="ong3" class="icone-apoio" src="img/apoio-icon-4.png" />
+                        <img id="ong4" class="icone-apoio" src="img/apoio-icon-1.png" />
+
+                </article>
+            </section>
+        </section >
+        
+        <!-- Sobre Nós/footer -->
+        <section id="secao-sobre" >
+            <section class="secao secao-tamanho bg-foto-sobre bg-img-estrutura margin-barra">
+                    <img src="img/SOBRE-NOS.png" alt=""/>
+                </section>
+                <section class="secao-tamanho" >
+                        <article class="secao">
+                            <p class="secao-textos alinhar-texto-centro color-azul-escuro"> 
+                            O projeto gira em torno de quatro projetos sociais que atuam em Quixadá, a 4Patas, APAQ,
+                            Conexão Animal e Mão Amiga, um grupo de pessoas unidas pelo amor aos animais e por um 
+                            objetivo em comum, ajudar aqueles animais que não possuem lar, realizando um trabalho com 
+                            muitas dificuldades e obstáculos, porém sem nunca desistir de sua missão. O Alumiar existe 
+                            por esses projetos, para apoiá-los, divulgar suas causas e necessidades, e para levar 
+                            conhecimento e consciência para a população de Quixadá sobre eles e o seu empenho e amor 
+                            à causa animal.
+                            </p>
+                        </article>
+                        <article class="secao">
+                            <div>
+                                <img class="img-sobre" src="img/logo-sobre.png" alt=""/>
+                            </div>
+                        </article>
+                </section>
+                <footer class="bg-azul-escuro secao-footer color-branco">
+                    <article >
+                        <h1 class="secao-textos alinhar-texto-centro">Siga o Alumiar</h1>
+                        <article class="secao">
+                            <a target="_blank" href="https://www.facebook.com/ProjetoAlumiar" >
+                                <img class="redes-socias" src="img/FACE.png" alt=""/>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/projetoalumiar2017/?hl=pt-br">
+                            <img class="redes-socias" src="img/INSTA.png" alt=""/>
+                            </a>
+                        </article>
+                    </article>
+                    <article class="footer-form">
+                        <h3 class="secao-textos alinhar-texto-centro">ACOMPANHE OS ANIMAIS QUE CHEGAM PARA ADOÇÃO </h3>
+                        <div id="email-confirmado" th:if="${messageEmail}" class="alert alert-success" role="alert">
+							<h3 class="secao-textos alinhar-texto-centro" th:text="${messageEmail}">success message</h3>
+						</div>
+                        <form class="secao" action="/admin/newsletter/saveEmail" method="POST">
+                            <div>
+                                <input  class="campo-form" type="text" name="nome" placeholder="Nome" required="required"/>
+                                <input class="campo-form" type="email" name="email" placeholder="Email" required="required"/>
+                                <button type="submit" class="botao-form bg-branco"> Acompanhar</button>
+                            </div>
+                        </form>
+                    </article >  
+                    <article class=" secao-textos alinhar-texto-centro rodape">
+                        <p>2017 ~ Alumiar. Todos os direitos reservados.</p>
+                    </article>
+                </footer>
+
+        </section>
     </body>
 </html>

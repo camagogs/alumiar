@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.alumiar.models.NewsLetter;
 import com.project.alumiar.services.NewsLetterService;
@@ -28,6 +29,7 @@ public class NewsLetterController {
 	
 	@RequestMapping("/admin/newsletter/saveEmail")
 	public String saveNewsLetter(Model model,
+			RedirectAttributes redirectAtt,
 			@RequestParam("nome") String nome,
 			@RequestParam("email") String email) {
 		
@@ -35,7 +37,9 @@ public class NewsLetterController {
 		
 		newsService.save(n);
 		
-		return "redirect:/admin/newsletter/listEmails";
+		redirectAtt.addFlashAttribute("messageEmail", "Pronto, agora é só aguardar, email cadastrado com sucesso!!!");
+		
+		return "redirect:/#email-confirmado";
 	}
 	
 
