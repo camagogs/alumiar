@@ -23,5 +23,10 @@ public class MainController {
     	
 		return "index";
 	}
+    
+    @GetMapping("/admin")
+    public String loginAdmin() {
+    	return "pages/login";
+    }
 }
     

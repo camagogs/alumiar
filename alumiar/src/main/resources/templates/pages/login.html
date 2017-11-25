@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/headAdmin">
+    <head>
+    	<meta charset="UTF-8"/>
+        <title>Login Admin</title>
+    </head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="img/logo-sobre.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" method="post" action="/admin/animais/listar">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="inputEmail" class="form-control" placeholder="Nome " required="required" autofocus="autofocus"/>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" />
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me" /> Lembre-me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Esqueceu a senha?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+ </body>
+ </html>

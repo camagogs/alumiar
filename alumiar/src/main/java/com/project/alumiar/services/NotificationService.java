@@ -29,8 +29,8 @@ public class NotificationService {
 		
 		for (NewsLetter user : emails) {
 			mail.setTo(user.getEmail());
-			mail.setFrom("braulliosoares.bs@gmail.com");
-			mail.setSubject("Alumiar! Hora de adotar ;)");
+			mail.setFrom("Alumiar");
+			mail.setSubject("Adote um bichinho!!!");
 			mail.setText("Olá, tudo bem? Passando pra avisar que chegou mais um bixinho e está disponivel pra adoção. Obrigado");
 			
 			javaMailSender.send(mail);
