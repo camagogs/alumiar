@@ -1,103 +1,154 @@
 <!DOCTYPE html>
-<html lang="en"
-	xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout/headAdmin">
-    <head>
-    	<meta charset="UTF-8"/>
-        <title>Alumiar Admin Animais</title>
-    </head>
+<head>
+<meta charset="UTF-8" />
+<title>Alumiar Admin Animais</title>
+<style>
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, .8)
+		url('/img/loading.gif') 50% 50% no-repeat;
+}
+
+body.loading {
+	overflow: hidden;
+}
+
+body.loading .modal {
+	display: block;
+}
+</style>
+</head>
+
+
 <body>
-	
+
 	<div th:replace="layout/menu"></div>
-    <section class="panel panel-default container">
-        <div class="panel-heading ">
+	<section class="panel panel-default container">
+		<div class="panel-heading ">
 			<strong>Formulário de Catalogação</strong>
 		</div>
-    	<div class="panel-body">  
-        <form class="form-horizontal" action="/form/admin/cadastraAnimal" method="POST" enctype="multipart/form-data">
-           <div class="form-group">
- 					<fieldset>
-						<div class="form-group row">                                                          
+		<div class="panel-body">
+			<form class="form-horizontal"
+				action="/form/admin/cadastraAnimal" method="POST"
+				enctype="multipart/form-data">
+				<div class="form-group">
+					<fieldset>
+						<div class="form-group row">
 							<div class="col-md-4">
-							    <label>Nome</label>
-							    <input type="text" class="form-control input-sm" name="nomeAnimal" autofocus="autofocus" placeholder="Informe o Nome" maxlength="50"/>
+								<label>Nome</label> <input type="text"
+									class="form-control input-sm" name="nomeAnimal"
+									autofocus="autofocus" placeholder="Informe o Nome"
+									maxlength="50" />
 							</div>
 						</div>
 						<div class="form-group row">
 							<div class="col-md-4">
-								<label>Raça</label> 
-								<input type="text" class="form-control input-sm" name="raca" maxlength="150" placeholder="Informe o Raça"/>
+								<label>Raça</label> <input type="text"
+									class="form-control input-sm" name="raca" maxlength="150"
+									placeholder="Informe o Raça" />
 							</div>
 						</div>
 						<div class="form-group row">
 							<div class="col-md-4">
-								<label>Tipo</label> 
-								<input type="radio" checked="checked" class="radio radio-inline" name="tipoAnimal" value="Cachorro"/> Cachorro
-								<input type="radio" class="radio radio-inline" name="tipoAnimal" value="Gato"/> Gato
+								<label>Tipo</label> <input type="radio" checked="checked"
+									class="radio radio-inline" name="tipoAnimal" value="Cachorro" />
+								Cachorro <input type="radio" class="radio radio-inline"
+									name="tipoAnimal" value="Gato" /> Gato
 							</div>
 						</div>
 						<div class="form-group row">
 							<div class="col-md-4">
-								<label>Sexo</label> 
-								<input type="radio" checked="checked" class="radio radio-inline" name="sexo" value="Macho"/> Macho
-								<input type="radio" class="radio radio-inline" name="sexo" value="Femea"/> Femea
+								<label>Sexo</label> <input type="radio" checked="checked"
+									class="radio radio-inline" name="sexo" value="Macho" /> Macho <input
+									type="radio" class="radio radio-inline" name="sexo"
+									value="Femea" /> Femea
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="col-md-4">
-								<label>Pelagem</label> 
-								<input type="radio" checked="checked" class="radio radio-inline" name="pelagem" value="Curta"/> Curta
-								<input type="radio" class="radio radio-inline" name="pelagem" value="Media"/> Média
-								<input type="radio" class="radio radio-inline" name="pelagem" value="Longa"/> Longa
+								<label>Pelagem</label> <input type="radio" checked="checked"
+									class="radio radio-inline" name="pelagem" value="Curta" />
+								Curta <input type="radio" class="radio radio-inline"
+									name="pelagem" value="Media" /> Média <input type="radio"
+									class="radio radio-inline" name="pelagem" value="Longa" />
+								Longa
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="col-md-4">
-								<label>Idade</label> 
-								<input type="radio" checked="checked" class="radio radio-inline" name="idade" value="Filhote"/> Filhote
-								<input type="radio" class="radio radio-inline" name="idade" value="Adulto"/> Adulto
-								<input type="radio" class="radio radio-inline" name="idade" value="Idoso"/> Idoso
+								<label>Idade</label> <input type="radio" checked="checked"
+									class="radio radio-inline" name="idade" value="Filhote" />
+								Filhote <input type="radio" class="radio radio-inline"
+									name="idade" value="Adulto" /> Adulto <input type="radio"
+									class="radio radio-inline" name="idade" value="Idoso" /> Idoso
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="col-md-4">
 								<label>Descrição</label>
-								<textarea class="form-control input-sm" name="desc" cols="5" rows="5" placeholder="Informe a Descrição"></textarea>
+								<textarea class="form-control input-sm" name="desc" cols="5"
+									rows="5" placeholder="Informe a Descrição"></textarea>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="col-md-4">
 								<label>Cuidados</label>
-								<textarea class="form-control input-sm" name="cuidados" cols="5" rows="5" placeholder="Informe os cuidados especiais que ele precisa"></textarea>
+								<textarea class="form-control input-sm" name="cuidados" cols="5"
+									rows="5"
+									placeholder="Informe os cuidados especiais que ele precisa"></textarea>
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-md-4" >
-								<label>Status</label> 
-								<input type="radio" class="radio radio-inline" name="isAdotado" value="Adotado"/> Adotado
-								<input type="radio" checked="checked" class="radio radio-inline" name="isAdotado" value="Não Adotado"/> Não Adotado
+							<div class="col-md-4">
+								<label>Status</label> <input type="radio"
+									class="radio radio-inline" name="isAdotado" value="Adotado" />
+								Adotado <input type="radio" checked="checked"
+									class="radio radio-inline" name="isAdotado" value="Não Adotado" />
+								Não Adotado
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-md-4" >
-								<label>Selecione a foto do bixinho:</label> 
-								<input class="radio radio-inline" type="file" name="myImage" required="required"/>
+							<div class="col-md-4">
+								<label>Selecione a foto do bixinho:</label> <input
+									class="radio radio-inline" type="file" name="myImage"
+									required="required" />
 							</div>
 						</div>
 					</fieldset>
 				</div>
 				<div class="form-group row">
-					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<a th:href="@{/admin/animais/listar}" class="btn btn-sm btn-default">Cancelar</a>
+					<button  id="form-animal" type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/admin/animais/listar}"
+						class="btn btn-sm btn-default">Cancelar</a>
 				</div>
-        </form>
-        </div>
-    </section>
-    <script src = "/libs/jquery-3.1.1.min.js"></script>
+			</form>
+			<div class="modal">
+				<!-- Place at bottom of page -->
+			</div>
+		</div>
+	</section>
+	<script src="/libs/jquery-3.1.1.min.js"></script>
+
+	<script>
+	$body = $("body");
+	
+	$( "form" ).submit(function( event ) {
+		$body.addClass("loading");
+	});
+	</script>
+
 </body>
 </html>
