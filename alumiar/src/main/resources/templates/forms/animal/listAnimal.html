@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/headAdmin">
+    <head>
+    	<meta charset="UTF-8"/>
+        <title>Alumiar Admin</title>
+    </head>
+<body>
+	
+	<div th:replace="layout/menu"></div>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h2>LISTA DE ANIMAIS</h2>
+		</div>
+		<div th:if="${message}" class="alert alert-success" role="alert">
+			<p th:text="${message}">success message</p>
+		</div>
+		<div>
+			<a class="btn btn-info pull-right" th:href="@{/admin/animais/form}">Novo</a>
+		</div>
+		<div id="listaAnimais">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>FOTO</th>
+						<th>TIPO ANIMAL</th>
+						<th>NOME</th>
+						<th>RAÇA</th>
+						<th>IDADE</th>
+						<th>PELAGEM</th>
+						<th>SEXO</th>
+						<th>DESCRIÇÂO</th>
+						<th>CUIDADOS</th>
+						<th>STATUS</th>
+						<th>EDITAR</th>
+						<th>APAGAR</th>
+					</tr>
+				</thead>
+
+				<tr th:each="animal : ${animais}">
+					<td><span th:text="${animal.id}"></span></td>
+					<td><img width="200" th:src="@{/files/} + ${animal.pathFoto}"/></td>
+					<td><span th:text="${animal.tipoAnimal}"></span></td>
+					<td><span th:text="${animal.nome}"></span></td>
+					<td><span th:text="${animal.raca}"></span></td>
+					<td><span th:text="${animal.idade}"></span></td>
+					<td><span th:text="${animal.pelagem}"></span></td>
+					<td><span th:text="${animal.sexo}"></span></td>
+					<td><span th:text="${animal.descricao}"></span></td>
+					<td><span th:text="${animal.cuidados}"></span></td>
+					<td><span th:text="${animal.isAdotado}"></span></td>
+					
+					<td><a class="btn btn-warning" href="#" th:href="@{/admin/animais/edit/} + ${animal.id}">Editar</a></td>
+					<td><a class="btn btn-danger" href="#" th:href="@{/admin/animais/delete/} + ${animal.id}">Delete</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>		
+</body>
+</html>	
